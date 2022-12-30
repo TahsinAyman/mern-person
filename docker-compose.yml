@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    environment:
+      REACT_APP_BACKEND_URL: mongodb://backend/person
+    links:
+      - backend
+
+
+  backend:
+    build: ./backend
+    ports:
+      - 8000:8000
+    environment:
+      DB_CONNECTION: mongodb://database/person
+
+  database:
+    image: mongo
+    ports:
+      - 2717:27017
+    volumes:
+      - person:/data/db
+volumes:
+  person:
+

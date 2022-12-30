@@ -17,6 +17,6 @@ mongoos.connect(process.env.DB_CONNECTION, () => {
   console.log("Connected to DB");
 });
 
-app.listen(config.port, config.host, () => {
-  console.log(`Server Running On ${config.host}:${config.port}`);
+app.listen(config.port, () => {
+  console.log(`Server Running On Port ${config.port}`);
 });

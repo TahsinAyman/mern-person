@@ -1,8 +1,9 @@
 import axios from "axios";
-import application from "../resources/application.json";
 import { jsonListToObjList, jsonToObj } from "../repository/PersonRepository";
+import application from "../resources/application.json";
 
 export function fetchPersonsByPage(persons, set, page, last) {
+  console.log(application.backend);
   axios({
     method: "GET",
     url: `${application.backend}/api/v1/person/get/page/?items=10&page=${page}`,
